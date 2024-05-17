@@ -80,7 +80,7 @@ Create a serializer class to serialize your data. You need to create a serialize
 From .Models import products 
 
 
-Class Serializer(serializer.Serializers):
+Class ProductSerializer(serializer.Serializers):
       Class Meta:
             model = products
             fields = ‘__all__’
