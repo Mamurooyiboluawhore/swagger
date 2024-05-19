@@ -65,7 +65,7 @@ You should create a simple model for products.
 There are several ways to do this but I prefer creating a new app for each functionality in the project. 
 Run this command on your terminal to do so.
 ```bash
-python manage.py createapp products
+python manage.py startapp products
 ```
 
 This will create a new directory with the basic structure of an app in it. 
