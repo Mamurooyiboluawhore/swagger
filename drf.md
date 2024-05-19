@@ -75,11 +75,11 @@ Navigate to your app directory, in this case, it is products and create a simple
 ```bash
     class Product(model.Models):
       id = models.UIIDfield()
-      name = models.CharField(max_length=300)
-      description = models.CharField(max_length=500)
+      name = models.Charfield(max_length=300)
+      description = models.Charfield(max_length=500)
       quantity = models.BigIntegerField()
-      createdat = models.datetimefield(auto_add)
-      updatedat = models.datetimefield(auto_add_now)
+      createdat = models.Datetimefield(auto_add)
+      updatedat = models.Datetimefield(auto_add_now)
   ```
 
 Then run migrations with the code below
