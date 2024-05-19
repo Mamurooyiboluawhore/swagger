@@ -73,7 +73,7 @@ Navigate to your __“settings.py”__ file and include the __‘products’__ t
 ** Pictures **
 Navigate to your app directory, in this case, it is products and create a simple model for it in your app's models.py file
 ```bash
-    Class Product(model.Models):
+    class Product(model.Models):
       id = models.UIIDfield()
       name = models.CharField(max_length=300)
       description = models.CharField(max_length=500)
