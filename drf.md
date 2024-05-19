@@ -20,9 +20,11 @@ Automated documentation of API
 Testing and debugging
 
 ## PREREQUISITE
-Basic knowledge of DJANGO and DRF is required to start this tutorial.
-To continue, we will need to install the necessary dependencies needed for the swagger implementation. You must have Python installed on your local machine. If you don’t yet, you need to install it from https://www.python.org/downloads/.
+- Python
+    - If you do not have python installed locally, you need to install it from https://www.python.org/downloads/.
 
+- Basic knowledge of DJANGO and DRF is required to start this tutorial.
+To continue, we will need to install the necessary dependencies needed for the swagger implementation.
 
 Next, we need to create a virtual environment. It can be created with the code below. Depending on the version of Python you downloaded. For python 3.12. 1. Use this command below.
 ```bash
@@ -34,9 +36,13 @@ It should look like this
   Python -m venv venv
 ```
 Then run this command on Windows to activate your virtual environment 
-Venv/Script/activate
+```bash 
+Venv/Scripts/activate
+```
 On Linux, run this command to activate your Venv 
+```bash
 venv/bin/activate
+```
 
 Now, you need to install Django and Django rest framework (drf) within your virtual environment. To install Django, use this command 
 ```bash
@@ -47,7 +53,7 @@ Then this is to install DRF
 ```bash
     Pip install Django rest framework.
 ```
-These are the necessary packages you need to start up a simple DRF application 
+These are the necessary packages you need to start up a simple django Restframework (DRF) application 
 
 ## CREATE A SAMPLE APPLICATION
 After setting up your virtual environment (Venv), installing Django and Django rest framework within your virtual environment, you will need to start a new project.
@@ -65,14 +71,26 @@ Run this command on your terminal to do so.
 
 This will create a new directory with the basic structure of an app in it. 
 Navigate to your __“settings.py”__ file and include the __‘products’__ to your installed app. 
-Navigate to your app directory in this case, it is products and create a simple model for it in your app's models.py file
+** Pictures **
+Navigate to your app directory, in this case, it is products and create a simple model for it in your app's models.py file
 ```bash
-    Class Product(model. Models)
+    Class Product(model.Models)
       id = models.UIIDfield()
-      user = models.Foreignkey(User, on delete=Cascade)
+      name = models.CharField(max_length=300)
+      description = models.CharField(max_length=500)
+      quantity = models.BigIntegerField()
       createdat = models.datetimefield(auto_add)
       updatedat = models.datetimefield(auto_add_now)
   ```
+
+Then run migrations with the code below
+```bash
+python manage.py makemigrations
+```
+After that, apply those changes by running:
+```bash
+python manage.py migrate
+```
 Create a serializer class to serialize your data. You need to create a serializer.py file in your app directory(products directory). In your serializer file, create a serializer class
 
 
@@ -89,7 +107,7 @@ Class ProductSerializer(serializer.Serializers):
 
 In your product views.py, create a simple crud. 
 ```bash
-    from django.http import JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from rest_framework.views import APIView
@@ -257,7 +275,7 @@ class ProductDetailAPIViews(APIView):
 ```
 Then create the URLs for product in your product urls.py file.
 ```bash
-    from django.urls import path
+from django.urls import path
 from .views import ProductListCreateAPIView, ProductDetailAPIViews
 
 urlpatterns = [
@@ -276,41 +294,75 @@ urlpatterns = [
 
 ```
 
-Navigate to your core urls.py file, and do the basic settings for Swagger docs. First, you need to import all the necessary modules.
+## SETTING UP SWAGGER
+After setting up your sample project. Please install restframework swagger. Do this with this command below
+```bash
+pip install django-rest-swagger
+```
+To use swagger, you need to install the required packages for swagger which is Django REST Framework - Yet Another Swagger Generator (yasg) is library thata automates documentation for Django REST Framework APIs
+
+```bash
+pip install drf-yasg
+```
+After your installation, please include the libraries in your installed apps in settings.py file
+
+** settings.py **
+```bash
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'myproject',                    # sample App 
+    'rest_framework_swagger',       # REST Framework Swagger 
+    'rest_framework',               # Django rest framework(DRF)
+    'drf_yasg'                      # Yet Another Swagger generator(yasg)
+]
+```
+Then,navigate to your core urls.py file, and do the basic settings for Swagger docs. First, you need to import all the necessary modules.
 
 
-“from rest_framework_swagger.views import get_swagger_view
+```bash 
+from rest_framework_swagger.views import get_swagger_view
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions”
-
+```
 Then proceed to set up Swagger with the code below.
 
+```bash
 “schema_view = get_schema_view(
     openapi.Info(
-        title="First Collectionz API",
+        title="myproject",
         default_version='v1',),
     public=True,
     permission_classes=(permissions.AllowAny,),
 )”
-
+```
 
 After which, include swagger docs in your urlspatterns with this line of code.
-
+```bash
 urlpatterns = [
+       path('products/', include('products.urls')),
        path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
 
 ]. 
+```
 
-Then run your django server…. Congratulations, you have successfully
-  implemented Swagger. PS. For deployment purposes, please configure your static files. You can do this by running this command below. 
+
+Then run your django server…. Congratulations, you have successfully implemented Swagger. __Note__ For deployment purposes, please configure your static files. You can do this by running this command below.
+```bash
 Python manage.py collectstatic
+```
 
 This will create a static file directory. 
 
 Conclusion 
-Documenting with swagger is a great way to 
+Documenting with Swagger is a great way to create interactive, user-friendly API documentation. It improves development processes by providing clear and concise API documentation thereby making it easier to develop, test, and maintain your web services.
 
+By following the steps outlined in this article, you have successfully implemented swagger in your Django REST framework
 
 
 
