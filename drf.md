@@ -321,7 +321,7 @@ INSTALLED_APPS = [
     'drf_yasg'                      # Yet Another Swagger generator(yasg)
 ]
 ```
-Then,navigate to your core urls.py file, and do the basic settings for Swagger docs. First, you need to import all the necessary modules.
+Then,navigate to your myproject's urls.py file, and do the basic settings for Swagger docs. First, you need to import all the necessary modules.
 
 
 ```bash 
