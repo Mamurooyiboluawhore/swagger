@@ -315,7 +315,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myproject',                    # sample App 
+    'products',                     # sample App 
     'rest_framework_swagger',       # REST Framework Swagger 
     'rest_framework',               # Django rest framework(DRF)
     'drf_yasg'                      # Yet Another Swagger generator(yasg)
