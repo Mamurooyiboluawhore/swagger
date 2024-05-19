@@ -50,7 +50,7 @@ pip install django
 ```
 Then this is to install DRF
 ```bash
-pip install djangorestframework.
+pip install djangorestframework
 ```
 These are the necessary packages you need to start up a simple django Restframework (DRF) application 
 
