@@ -28,12 +28,12 @@ To continue, we will need to install the necessary dependencies needed for the s
 
 Next, we need to create a virtual environment. It can be created with the code below. Depending on the version of Python you downloaded. For python 3.12. 1. Use this command below.
 ```bash
-    Python -m venv {venv name}
+python -m venv {venv name}
 ```
 Where the ‘{venv name}’ refers to any desired names you give to your virtual environment(venv). The convention is using Venv but whatever name you choose to use is totally up to you.
 It should look like this
 ```bash
-  Python -m venv venv
+python -m venv venv
 ```
 Then run this command on Windows to activate your virtual environment 
 ```bash 
@@ -46,11 +46,11 @@ venv/bin/activate
 
 Now, you need to install Django and Django rest framework (drf) within your virtual environment. To install Django, use this command 
 ```bash
-Pip install Django
+pip install django
 ```
 Then this is to install DRF
 ```bash
-    Pip install Django rest framework.
+pip install djangorestframework.
 ```
 These are the necessary packages you need to start up a simple django Restframework (DRF) application 
 
@@ -58,14 +58,14 @@ These are the necessary packages you need to start up a simple django Restframew
 After setting up your virtual environment (Venv), installing Django and Django rest framework within your virtual environment, you will need to start a new project.
 Run the command below to set up a new project.
 ```bash
-    django-admin startproject myproject
+django-admin startproject myproject
 ```
 This will create a new directory called __myproject__ with the basic structure of Django in it. You can run your server to make sure everything is working fine.
 You should create a simple model for products.
 There are several ways to do this but I prefer creating a new app for each functionality in the project. 
 Run this command on your terminal to do so.
 ```bash
-    Python manage.py createapp products
+python manage.py createapp products
 ```
 
 This will create a new directory with the basic structure of an app in it. 
