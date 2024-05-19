@@ -73,13 +73,13 @@ Navigate to your __“settings.py”__ file and include the __‘products’__ t
 ** Pictures **
 Navigate to your app directory, in this case, it is products and create a simple model for it in your app's models.py file
 ```bash
-    class Product(model.Models):
-      id = models.UIIDfield()
-      name = models.Charfield(max_length=300)
-      description = models.Charfield(max_length=500)
-      quantity = models.BigIntegerField()
-      createdat = models.Datetimefield(auto_add)
-      updatedat = models.Datetimefield(auto_add_now)
+class Product(model.Models):
+    id = models.UIIDfield()
+    name = models.CharField(max_length=300)
+    description = models.CharField(max_length=500)
+    quantity = models.BigIntegerField()
+    createdat = models.DateTimeField(auto_add)
+    updatedat = models.DateTimeField(auto_add_now)
   ```
 
 Then run migrations with the code below
