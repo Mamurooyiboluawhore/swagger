@@ -94,13 +94,14 @@ Create a serializer class to serialize your data. You need to create a serialize
 
 
 ```bash
-From .Models import products 
+from .models import Product 
 
 
-Class ProductSerializer(serializer.Serializers):
-      Class Meta:
-            model = products
-            fields = ‘__all__’
+class ProductSerializer(serializer.Serializers):
+      class Meta:
+        model = products
+        fields = '__all__'
+
 
 ```
 
