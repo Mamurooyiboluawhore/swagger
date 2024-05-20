@@ -328,7 +328,7 @@ Then,navigate to your myproject's urls.py file, and do the basic settings for Sw
 from rest_framework_swagger.views import get_swagger_view
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from rest_framework import permissions”
+from rest_framework import permissions
 ```
 Then proceed to set up Swagger with the code below.
 
