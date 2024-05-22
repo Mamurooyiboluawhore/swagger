@@ -8,14 +8,10 @@
 ## INTRODUCTION:
 Swagger is an open-source framework that helps developers design, build,  document, and consume RESTFUL web services.It is used to document APIs, which helps the developers to understand the basic behavior of every endpoint created. It also outlines all available models in a particular project. This is very helpful to developers as it saves long hours of meetings.
 
-Swagger uses a JavaScript Object Notation(JSON) and YAML Ain't Markup Language(YAML) called openAPI specification(OAS) to define APIs. This specification includes details such as endpoints, methods, requests, responses, etc. Swagger has other advanced features but for the purpose of this article, we will focus on documenting UI
-In this article you are going to integrate swagger in your Django REST framework project.
+Swagger uses a JavaScript Object Notation (JSON) and YAML Ain't Markup Language (YAML) called openAPI specification (OAS) to define APIs. This specification includes details such as endpoints, methods, requests, responses, etc. 
 
-## IMPORTANCE OF USING SWAGGER DOCS
+This article  will focus on swagger documenting UI and integrating swagger in your Django REST framework project.
 
-Some of the importance of integrating swagger docs in the backend of your code includes:
-- Automated documentation of API 
-- Testing and debugging
 
 ## PREREQUISITE
 - Python
@@ -400,7 +396,9 @@ Swagger is a powerful tool that allows developers to easily design and document 
 In this tutorial, we introduced Django Rest Framework and Swagger UI to a Django project. We created models, serializers, views, and URLs for our API endpoints. Additionally, we configured Swagger
 In conclusion, Django REST Framework Swagger is a powerful tool that allows developers to easily document and interact with their APIs using an intuitive UI. By following these instructions, you should be able to integrate
 
-
+Some of the importance of integrating swagger docs in the backend of your code includes:
+- Automated documentation of API 
+- Testing and debugging
 
 
 
