@@ -8,7 +8,7 @@
 ## INTRODUCTION:
 Swagger is an open-source framework that helps developers design, build,  document, and consume RESTFUL web services.It is used to document APIs, which helps the developers to understand the basic behavior of every endpoint created. It also outlines all available models in a particular project. This is very helpful to developers as it saves long hours of meetings.
 
-Swagger uses JavaScript Object Notation (JSON) and YAML Ain't Markup Language (YAML) called openAPI specification (OAS) to define APIs. This specification includes details such as endpoints, methods, requests, and responses.Some of the importance of integrating swagger docs in the backend of your code includes:
+__Swagger uses JavaScript Object Notation (JSON) and YAML Ain't Markup Language (YAML) called openAPI specification__ (OAS) to define APIs. This specification includes details such as endpoints, methods, requests, and responses.Some of the importance of integrating swagger docs in the backend of your code includes:
 - Automated documentation of API 
 - Testing and debugging
 
@@ -17,9 +17,8 @@ This article  will focus on swagger documenting UI and integrating swagger in yo
 
 ## PREREQUISITE
 - Python
-    - If you do not have python installed locally, you need to install it from https://www.python.org/downloads/.
 
-- Basic knowledge of DJANGO and Django REST framework(DRF) is required to start this tutorial.
+## SET UP A VIRTUAL ENVIRONMENT
 To continue, you will need to install the necessary dependencies needed for the swagger implementation.
 
 Next, you need to create a virtual environment. It can be created with the code below. Depending on the version of Python you downloaded. For python 3.12. 1. Use this command below.
