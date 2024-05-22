@@ -10,27 +10,27 @@ What is swagger documentation?
 Swagger is an open-source framework that helps developers design, build,  document, and consume RESTFUL web services.You can say swagger is used to document APIs. This helps the developers to understand the basic behavior of every (API) created at the backend. 
 
 It also outlines all available models in a particular project. This is very helpful to developers as it saves long hours of meetings. 
-Swagger uses a JSON and YAML called openAPI specification(OAS) to define APIs. This specification includes details such as endpoints, methods, requests, responses, etc.
-In this article …..
+Swagger uses a JavaScript Object Notation(JSON) and YAML Ain't Markup Language(YAML) called openAPI specification(OAS) to define APIs. This specification includes details such as endpoints, methods, requests, responses, etc.
+In this article you are going to integrate swagger in your Django REST framework project.
 
 ## IMPORTANCE OF USING SWAGGER DOCS
 
-Some of the importance of integrating  swagger docs in the backend of your code includes:
-Automated documentation of API 
-Testing and debugging
+Some of the importance of integrating swagger docs in the backend of your code includes:
+- Automated documentation of API 
+- Testing and debugging
 
 ## PREREQUISITE
 - Python
     - If you do not have python installed locally, you need to install it from https://www.python.org/downloads/.
 
-- Basic knowledge of DJANGO and DRF is required to start this tutorial.
-To continue, we will need to install the necessary dependencies needed for the swagger implementation.
+- Basic knowledge of DJANGO and Django REST framework(DRF) is required to start this tutorial.
+To continue, you will need to install the necessary dependencies needed for the swagger implementation.
 
-Next, we need to create a virtual environment. It can be created with the code below. Depending on the version of Python you downloaded. For python 3.12. 1. Use this command below.
+Next, you need to create a virtual environment. It can be created with the code below. Depending on the version of Python you downloaded. For python 3.12. 1. Use this command below.
 ```bash
 python -m venv {venv name}
 ```
-Where the ‘{venv name}’ refers to any desired names you give to your virtual environment(venv). The convention is using Venv but whatever name you choose to use is totally up to you.
+Where the ‘{venv name}’ refers to any desired name you give to your virtual environment(venv). The convention is using Venv but whatever name you choose to use is totally up to you.
 It should look like this
 ```bash
 python -m venv venv
