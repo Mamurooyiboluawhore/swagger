@@ -1,4 +1,4 @@
-# IMPLEMENTING SWAGGER IN DRF(DJANGO REST FRAMEWORK)
+# HOW TO IMPLEMENT SWAGGER IN DJANGO REST FRAMEWORK (DRF)
 
 ### INTRODUCTION
 ### PREREQUISITE
@@ -6,8 +6,7 @@
 ### CONCLUSION
 
 ## INTRODUCTION:
-What is swagger documentation?
-Swagger is an open-source framework that helps developers design, build,  document, and consume RESTFUL web services.You can say swagger is used to document APIs. This helps the developers to understand the basic behavior of every (API) created at the backend. 
+Swagger is an open-source framework that helps developers design, build,  document, and consume RESTFUL web services.It is used to document APIs, this helps the developers to understand the basic behavior of every code created at the backend. 
 
 It also outlines all available models in a particular project. This is very helpful to developers as it saves long hours of meetings. 
 Swagger uses a JavaScript Object Notation(JSON) and YAML Ain't Markup Language(YAML) called openAPI specification(OAS) to define APIs. This specification includes details such as endpoints, methods, requests, responses, etc.
@@ -44,11 +43,11 @@ On Linux, run this command to activate your Venv
 venv/bin/activate
 ```
 
-Now, you need to install Django and Django rest framework (drf) within your virtual environment. To install Django, use this command 
+Now, you need to install Django and Django REST framework (drf) within your virtual environment. To install Django, use this command 
 ```bash
 pip install django
 ```
-Then this is to install DRF
+Then this is to install Django REST framework(DRF)
 ```bash
 pip install djangorestframework
 ```
@@ -299,7 +298,7 @@ After setting up your sample project. Please install restframework swagger. Do t
 ```bash
 pip install django-rest-swagger
 ```
-To use swagger, you need to install the required packages for swagger which is Django REST Framework - Yet Another Swagger Generator (yasg) is library thata automates documentation for Django REST Framework APIs
+To use swagger, you need to install the required packages for swagger which is Django REST Framework - Yet Another Swagger Generator (yasg) is library that automates documentation for Django REST Framework APIs
 
 ```bash
 pip install drf-yasg
@@ -342,7 +341,7 @@ Then proceed to set up Swagger with the code below.
 )”
 ```
 
-After which, include swagger docs in your urlspatterns with this line of code.
+After which, include swagger docs in your urlspatterns with the line of code below.
 ```bash
 urlpatterns = [
        path('products/', include('products.urls')),
@@ -367,7 +366,7 @@ You can install whiteNoise with this command
 pip install whitenoise
 ```
 ### Update MIDDLEWARE
-Update your Django settings to use WhiteNoise for serving static filess by add whiteNoise to your middleware in settings.py
+Update your Django settings to use WhiteNoise for serving static files by add whiteNoise to your middleware in __settings.py__
 ```bash
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -389,12 +388,19 @@ Run __collectstatic__ management command to gather all static files into the __S
 ```bash
 Python manage.py collectstatic
 ```
-
+Now, you are ready for deployment!
+For more detailed information about Django and its features, refer to the official documentation here: [https://docs.djangoproject.com](https://docs.djangoproject.com)
 
 # Conclusion 
 Documenting with Swagger is a great way to create interactive, user-friendly API documentation. It improves development processes by providing clear and concise API documentation thereby making it easier to develop, test, and maintain your web services. WhiteNoise will handle serving your staticfiles efficiently during deployment 
 
 By following the steps outlined in this article, you have successfully implemented swagger in your Django REST framework
+This tutorial provides a step by step guide on how to add swagger documentation to Django projects using drf-yasg and django-rest-framework. It covers installing the necessary packages, config
+In conclusion, Django REST framework Swagger is a powerful tool that allows developers to easily document their APIs and provide documentation to other developers who may be using or consuming these APIs. By integrating Swagger
+Swagger is a powerful tool that allows developers to easily design and document APIs in Django projects. By following these instructions, you should be able to add Swagger to your Django project and deploy it successfully
+In this tutorial, we introduced Django Rest Framework and Swagger UI to a Django project. We created models, serializers, views, and URLs for our API endpoints. Additionally, we configured Swagger
+In conclusion, Django REST Framework Swagger is a powerful tool that allows developers to easily document and interact with their APIs using an intuitive UI. By following these instructions, you should be able to integrate
+
 
 
 
