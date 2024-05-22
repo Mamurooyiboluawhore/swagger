@@ -6,9 +6,8 @@
 ### CONCLUSION
 
 ## INTRODUCTION:
-Swagger is an open-source framework that helps developers design, build,  document, and consume RESTFUL web services.It is used to document APIs, this helps the developers to understand the basic behavior of every endpoints created.
+Swagger is an open-source framework that helps developers design, build,  document, and consume RESTFUL web services.It is used to document APIs, which helps the developers to understand the basic behavior of every endpoint created. It also outlines all available models in a particular project. This is very helpful to developers as it saves long hours of meetings.
 
-It also outlines all available models in a particular project. This is very helpful to developers as it saves long hours of meetings. 
 Swagger uses a JavaScript Object Notation(JSON) and YAML Ain't Markup Language(YAML) called openAPI specification(OAS) to define APIs. This specification includes details such as endpoints, methods, requests, responses, etc. Swagger has other advanced features but for the purpose of this article, we will focus on documenting UI
 In this article you are going to integrate swagger in your Django REST framework project.
 
