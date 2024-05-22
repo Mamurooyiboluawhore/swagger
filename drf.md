@@ -321,7 +321,7 @@ INSTALLED_APPS = [
     'drf_yasg'                      # Yet Another Swagger generator(yasg)
 ]
 ```
-Then,navigate to your myproject's urls.py file, and do the basic settings for Swagger docs. First, you need to import all the necessary modules.
+Then, navigate to your myproject's urls.py file, and do the basic settings for Swagger docs. First, you need to import all the necessary modules.
 
 
 ```bash 
@@ -352,17 +352,22 @@ urlpatterns = [
 ```
 
 
-Then run your django server…. Congratulations, you have successfully implemented Swagger.
+Then run your django server
+```bash
+python manage.py runserver
+```
+Congratulations, you have successfully implemented Swagger.
 
 ## SETTING UP SWAGGER FOR DEPLOYMENT
-__Note__ For deployment purposes, please configure your static files with the steps below: You can do this by running this command below.
-
-This will create a static file directory. 
-After which, you install whiteNoise. WhiteNoise is a Python library that helps you serve static files in your Django application. WhiteNoise integrates seamlessly with Django to provide efficient and easy-to-configure static file handling. You can install whiteNoise with this command
+__Note__ For deployment purposes, please configure your static files with the steps below: 
+You need to install whiteNoise for this. WhiteNoise is a Python library that helps you serve static files in your Django application. WhiteNoise integrates seamlessly with Django to provide efficient and easy-to-configure static file handling.
+### Install whiteNoise
+You can install whiteNoise with this command
 ```bash
 pip install whitenoise
 ```
-Add whiteNoise to your middleware in settings.py
+### Update MIDDLEWARE
+Update your Django settings to use WhiteNoise for serving static filess by add whiteNoise to your middleware in settings.py
 ```bash
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -370,7 +375,7 @@ MIDDLEWARE = [
 ]
 ```
 ### Configure staticfiles
-Ensure that your staticfile is configured correctly in your __settings.py__ file correctly. It should look like this code below
+Ensure that your staticfile is configured correctly in your __settings.py__ file. It should look like this code below
 ```bash
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -387,7 +392,7 @@ Python manage.py collectstatic
 
 
 # Conclusion 
-Documenting with Swagger is a great way to create interactive, user-friendly API documentation. It improves development processes by providing clear and concise API documentation thereby making it easier to develop, test, and maintain your web services.
+Documenting with Swagger is a great way to create interactive, user-friendly API documentation. It improves development processes by providing clear and concise API documentation thereby making it easier to develop, test, and maintain your web services. WhiteNoise will handle serving your staticfiles efficiently during deployment 
 
 By following the steps outlined in this article, you have successfully implemented swagger in your Django REST framework
 
