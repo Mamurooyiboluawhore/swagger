@@ -352,14 +352,41 @@ urlpatterns = [
 ```
 
 
-Then run your django server…. Congratulations, you have successfully implemented Swagger. __Note__ For deployment purposes, please configure your static files. You can do this by running this command below.
+Then run your django server…. Congratulations, you have successfully implemented Swagger.
+
+## SETTING UP SWAGGER FOR DEPLOYMENT
+__Note__ For deployment purposes, please configure your static files with the steps below: You can do this by running this command below.
+
+This will create a static file directory. 
+After which, you install whiteNoise. WhiteNoise is a Python library that helps you serve static files in your Django application. WhiteNoise integrates seamlessly with Django to provide efficient and easy-to-configure static file handling. You can install whiteNoise with this command
+```bash
+pip install whitenoise
+```
+Add whiteNoise to your middleware in settings.py
+```bash
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ...
+]
+```
+### Configure staticfiles
+Ensure that your staticfile is configured correctly in your __settings.py__ file correctly. It should look like this code below
+```bash
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+```
+### COLLECT STATIC FILES
+Run __collectstatic__ management command to gather all static files into the __STATIC_ROOT__ directory
 ```bash
 Python manage.py collectstatic
 ```
 
-This will create a static file directory. 
 
-Conclusion 
+# Conclusion 
 Documenting with Swagger is a great way to create interactive, user-friendly API documentation. It improves development processes by providing clear and concise API documentation thereby making it easier to develop, test, and maintain your web services.
 
 By following the steps outlined in this article, you have successfully implemented swagger in your Django REST framework
