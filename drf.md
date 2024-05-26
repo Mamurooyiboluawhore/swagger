@@ -351,6 +351,9 @@ Then run your django server
 ```bash
 python manage.py runserver
 ```
+
+![Swagger Documentation](mams.PNG)
+
 Congratulations, you have successfully implemented Swagger.
 
 ## SETTING UP SWAGGER FOR DEPLOYMENT
