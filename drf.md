@@ -89,12 +89,13 @@ Create a serializer class to serialize your data. You need to create a serialize
 
 
 ```bash
-from .models import Product 
+from rest_framework import serializers
+from .models import Product
 
 
-class ProductSerializer(serializer.Serializers):
+class ProductSerializer(serializers.Serializer):
       class Meta:
-        model = products
+        model = Product
         fields = '__all__'
 
 
@@ -102,7 +103,6 @@ class ProductSerializer(serializer.Serializers):
 
 In your product views.py, create a simple crud. 
 ```bash
-from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from rest_framework.views import APIView
