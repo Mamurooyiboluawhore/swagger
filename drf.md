@@ -395,14 +395,7 @@ Documenting with Swagger is a great way to create interactive, user-friendly API
 
 By following the steps outlined in this article, you have successfully implemented swagger in your Django REST framework
 This tutorial provides a step by step guide on how to add swagger documentation to Django projects using drf-yasg and django-rest-framework. It covers installing the necessary packages, config
-In conclusion, Django REST framework Swagger is a powerful tool that allows developers to easily document their APIs and provide documentation to other developers who may be using or consuming these APIs. By integrating Swagger
-Swagger is a powerful tool that allows developers to easily design and document APIs in Django projects. By following these instructions, you should be able to add Swagger to your Django project and deploy it successfully
-In this tutorial, we introduced Django Rest Framework and Swagger UI to a Django project. We created models, serializers, views, and URLs for our API endpoints. Additionally, we configured Swagger
-In conclusion, Django REST Framework Swagger is a powerful tool that allows developers to easily document and interact with their APIs using an intuitive UI. By following these instructions, you should be able to integrate
-
-Some of the importance of integrating swagger docs in the backend of your code includes:
-- Automated documentation of API 
-- Testing and debugging
+In conclusion, Django REST framework Swagger is a powerful tool that allows developers to easily document their APIs and provide documentation to other developers who may be using or consuming these APIs.
 
 
 
