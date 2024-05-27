@@ -394,7 +394,8 @@ For more detailed information about Django and its features, refer to the offici
 Documenting with Swagger is a great way to create interactive, user-friendly API documentation. It improves development processes by providing clear and concise API documentation thereby making it easier to develop, test, and maintain your web services. WhiteNoise will handle serving your staticfiles efficiently during deployment 
 
 By following the steps outlined in this article, you have successfully implemented swagger in your Django REST framework
-This tutorial provides a step by step guide on how to add swagger documentation to Django projects using drf-yasg and django-rest-framework. It covers installing the necessary packages, config
+This tutorial provides a step by step guide on how to add swagger documentation to Django projects using drf-yasg and django-rest-framework. It covers installing the necessary packages, configuration
+
 In conclusion, Django REST framework Swagger is a powerful tool that allows developers to easily document their APIs and provide documentation to other developers who may be using or consuming these APIs.
 
 
