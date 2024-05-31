@@ -37,11 +37,11 @@ On Linux, run this command to activate your Venv
 venv/bin/activate
 ```
 
-Now, you need to install Django and Django REST framework (drf) within your virtual environment. To install Django, use this command 
+ Install Django within your virtual environment using this command
 ```bash
 pip install django
 ```
-Then this is to install Django REST framework(DRF)
+Install Django REST framework(DRF)
 ```bash
 pip install djangorestframework
 ```
