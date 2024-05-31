@@ -387,7 +387,7 @@ Output:
 
 Congratulations, you have successfully implemented Swagger.
 
-## SETTING UP SWAGGER FOR DEPLOYMENT
+## SET UP SWAGGER FOR DEPLOYMENT
 __Note__ For deployment purposes, please configure your static files with the steps below:
 WhiteNoise is a Python library that helps you serve static files in your Django application. WhiteNoise integrates seamlessly with Django to provide efficient and easy-to-configure static file handling.
 
