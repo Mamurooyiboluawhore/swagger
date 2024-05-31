@@ -318,18 +318,23 @@ urlpatterns = [
 ```
 
 ## SET UP SWAGGER
-After setting up your sample project. Please install restframework swagger. Do this with this command below
+There are certain configuration you need to enable to use swagger in DRF. These include installing packages like `django-rest-swagger`  which allow you interact swagger in DRF and `drf-yasg` a library that automates documentation for Django REST Framework APIs
+
+Install restframework swagger with the command below
 ```bash
 pip install django-rest-swagger
 ```
-To use swagger, you need to install the required packages for swagger which is Django REST Framework - Yet Another Swagger Generator (yasg) is library that automates documentation for Django REST Framework APIs
+install Django REST Framework - Yet Another Swagger Generator (drf-yasg)
 
 ```bash
 pip install drf-yasg
 ```
-After your installation, please include the libraries in your installed apps in settings.py file
+Navigate to the `myproject` directory
+```bash
+cd ..
+```
+Include the libraries in your `INSTALLED_APPS` in the `settings.py` file
 
-** settings.py **
 ```python
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -344,18 +349,17 @@ INSTALLED_APPS = [
     'drf_yasg'                      # Yet Another Swagger generator(yasg)
 ]
 ```
-Then, navigate to your myproject's urls.py file, and do the basic settings for Swagger docs. First, you need to import all the necessary modules.
+Save and exit
 
+Navigate to your `myproject` `urls.py` file, and do the basic settings for Swagger docs with the code block below
 
 ```python
 from rest_framework_swagger.views import get_swagger_view
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
-```
-Then proceed to set up Swagger with the code below.
 
-```python
+
 “schema_view = get_schema_view(
     openapi.Info(
         title="myproject",
@@ -365,7 +369,7 @@ Then proceed to set up Swagger with the code below.
 )”
 ```
 
-After which, include swagger docs in your urlspatterns with the line of code below.
+Include swagger docs in your urlspatterns with the line of code below.
 ```python
 urlpatterns = [
        path('products/', include('products.urls')),
