@@ -8,7 +8,7 @@
 ## INTRODUCTION:
 Swagger is an open-source framework that helps developers design, build,  document, and consume RESTFUL web services.It is used to document APIs, which helps the developers to understand the basic behavior of every endpoint created. It also outlines all available models in a particular project. This is very helpful to developers as it saves long hours of meetings.
 
-__Swagger uses JavaScript Object Notation (JSON) and YAML Ain't Markup Language (YAML) called openAPI specification__ (OAS) to define APIs. This specification includes details such as endpoints, methods, requests, and responses.Some of the importance of integrating swagger docs in the backend of your code includes:
+Swagger uses JavaScript Object Notation (JSON) and YAML Ain't Markup Language (YAML) called openAPI specification__ (OAS) to define APIs. This specification includes details such as endpoints, methods, requests, and responses.Some of the importance of integrating swagger docs in the backend of your code includes:
 - Automated documentation of API 
 - Testing and debugging
 
@@ -360,44 +360,45 @@ from drf_yasg import openapi
 from rest_framework import permissions
 
 
-“schema_view = get_schema_view(
+schema_view = get_schema_view(
     openapi.Info(
         title="myproject",
         default_version='v1',),
     public=True,
     permission_classes=(permissions.AllowAny,),
-)”
-```
+)
 
-Include swagger docs in your urlspatterns with the line of code below.
-```python
 urlpatterns = [
+
        path('products/', include('products.urls')),
        path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
 
 ]. 
 ```
+Save and exit
 
-
-Then run your django server
+Run your django server
 ```bash
 python manage.py runserver
 ```
+Output:  
 
 ![Swagger Documentation](mams.PNG)
 
 Congratulations, you have successfully implemented Swagger.
 
 ## SETTING UP SWAGGER FOR DEPLOYMENT
-__Note__ For deployment purposes, please configure your static files with the steps below: 
-You need to install whiteNoise for this. WhiteNoise is a Python library that helps you serve static files in your Django application. WhiteNoise integrates seamlessly with Django to provide efficient and easy-to-configure static file handling.
+__Note__ For deployment purposes, please configure your static files with the steps below:
+WhiteNoise is a Python library that helps you serve static files in your Django application. WhiteNoise integrates seamlessly with Django to provide efficient and easy-to-configure static file handling.
+
 ### Install whiteNoise
-You can install whiteNoise with this command
+Install whiteNoise with this command
 ```bash
 pip install whitenoise
 ```
 ### Update MIDDLEWARE
-Update your Django settings to use WhiteNoise for serving static files by add whiteNoise to your middleware in __settings.py__
+Update your Django settings to use WhiteNoise for serving static files by adding whiteNoise to your middleware in the `settings.py` file. 
+
 ```python
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -405,7 +406,7 @@ MIDDLEWARE = [
 ]
 ```
 ### Configure staticfiles
-Ensure that your staticfile is configured correctly in your __settings.py__ file. It should look like this code below
+Ensure that your staticfile is configured correctly in the `settings.py` file with the code below
 ```python
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -415,20 +416,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ```
 ### COLLECT STATIC FILES
-Run __collectstatic__ management command to gather all static files into the __STATIC_ROOT__ directory
+Run `collectstatic` management command to gather all static files into the `STATIC_ROOT` directory
 ```bash
 Python manage.py collectstatic
 ```
 Now, you are ready for deployment!
-For more detailed information about Django and its features, refer to the official documentation here: [https://docs.djangoproject.com](https://docs.djangoproject.com)
 
 # Conclusion 
-Documenting with Swagger is a great way to create interactive, user-friendly API documentation. It improves development processes by providing clear and concise API documentation thereby making it easier to develop, test, and maintain your web services. WhiteNoise will handle serving your staticfiles efficiently during deployment 
 
-By following the steps outlined in this article, you have successfully implemented swagger in your Django REST framework
-This tutorial provides a step by step guide on how to add swagger documentation to Django projects using drf-yasg and django-rest-framework. It covers installing the necessary packages, configuration
+This article provides a step by step guide on how to add swagger documentation to Django projects using drf-yasg and django-rest-framework. It covers installing the necessary packages and  configurations
 
 In conclusion, Django REST framework Swagger is a powerful tool that allows developers to easily document their APIs and provide documentation to other developers who may be using or consuming these APIs.
+For more detailed information about Django and its features, refer to the official documentation here: [https://docs.djangoproject.com](https://docs.djangoproject.com)
+
 
 
 
