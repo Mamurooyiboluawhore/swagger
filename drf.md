@@ -23,16 +23,16 @@ Create a virtual environment. Depending on the version of Python you downloaded.
 ```bash
 python -m venv {venv name}
 ```
-Where the ‘{venv name}’ refers to any desired name you give to your virtual environment(venv). The convention is using Venv but whatever name you choose to use is totally up to you.
+  > Where the ‘{venv name}’ refers to any desired name you give to your virtual environment(venv). The convention is using Venv but whatever name you choose to use is totally up to you.
 It should look like this
 ```bash
 python -m venv venv
 ```
-Then run this command on Windows to activate your virtual environment 
+Run this command on Windows to activate your virtual environment 
 ```bash 
 Venv/Scripts/activate
 ```
-On Linux, run this command to activate your Venv 
+On Linux, run this command to activate your virtual environment
 ```bash
 venv/bin/activate
 ```
@@ -45,27 +45,51 @@ Install Django REST framework(DRF)
 ```bash
 pip install djangorestframework
 ```
-These are the necessary packages you need to start up a simple django Restframework (DRF) application 
+
+  > These are the necessary packages you need to start up a simple django Restframework (DRF) application 
+    
 
 ## CREATE A SAMPLE APPLICATION
-After setting up your virtual environment (Venv), installing Django and Django rest framework within your virtual environment, you will need to start a new project.
+To test swagger interactive User Interface(UI), you need to create a sample Create, Read, UPDATE, Delete (CRUD) application using Django rest framework. 
 Run the command below to set up a new project.
 ```bash
 django-admin startproject myproject
 ```
-This will create a new directory called __myproject__ with the basic structure of Django in it. You can run your server to make sure everything is working fine.
-You should create a simple model for products.
-There are several ways to do this but I prefer creating a new app for each functionality in the project. 
-Run this command on your terminal to do so.
+  > This will create a new directory called __myproject__ with the basic structure of Django in it. You can run your server to make sure everything is working fine.
+
+Navigate into your project directory
+```bash
+  cd myproject
+```
+create a sample `product` app to handle basic CRUD operations
 ```bash
 python manage.py startapp products
 ```
 
-This will create a new directory with the basic structure of an app in it. 
-Navigate to your __“settings.py”__ file and include the __‘products’__ to your installed app. 
-** Pictures **
-Navigate to your app directory, in this case, it is products and create a simple model for it in your app's models.py file
+  > This will create a new directory with the basic structure of an app in it.
+
+Open the `settings.py` file and include `products` to your `INSTALLED_APPS`. 
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'products',                     # sample App 
+    'rest_framework',               # Django rest framework(DRF)
+]
+```
+
+Close and exit the `settings.py` file.
+
+Navigate to your app directory
 ```bash
+cd products
+```
+Open the models.py and create a sample model database schema
+```python
 class Product(models.Model):
     id = models.UUIDField(primary_key=True)
     name = models.CharField(max_length=300)
@@ -74,19 +98,21 @@ class Product(models.Model):
     createdat = models.DateTimeField(auto_now=True)
     updatedat = models.DateTimeField(auto_now_add=True)
   ```
+Save and exit the `models.py` file
 
-Then run migrations with the code below
+Run migrations with the code below
 ```bash
 python manage.py makemigrations
 ```
-After that, apply those changes by running:
+Apply those changes by running
 ```bash
 python manage.py migrate
 ```
-Create a serializer class to serialize your data. You need to create a serializer.py file in your app directory(products directory). In your serializer file, create a serializer class
+  > This will execute and apply all changes made to the database schema
 
+Create a serializer.py file in your `products` app directory and create a serializer class to serialize your data.
 
-```bash
+```python
 from rest_framework import serializers
 from .models import Product
 
@@ -98,9 +124,10 @@ class ProductSerializer(serializers.Serializer):
 
 
 ```
+Save and exit the `serializer.py` file.
 
-In your product views.py, create a simple crud. 
-```bash
+In your `views.py`, create a the logic for the sample crud application. 
+```python
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from rest_framework.views import APIView
@@ -266,8 +293,11 @@ class ProductDetailAPIViews(APIView):
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)
 ```
-Then create the URLs for product in your product urls.py file.
-```bash
+Save and exit
+
+In `urls.py` file create the URLs for product.
+
+```python
 from django.urls import path
 from .views import ProductListCreateAPIView, ProductDetailAPIViews
 
@@ -287,7 +317,7 @@ urlpatterns = [
 
 ```
 
-## SETTING UP SWAGGER
+## SET UP SWAGGER
 After setting up your sample project. Please install restframework swagger. Do this with this command below
 ```bash
 pip install django-rest-swagger
@@ -300,7 +330,7 @@ pip install drf-yasg
 After your installation, please include the libraries in your installed apps in settings.py file
 
 ** settings.py **
-```bash
+```python
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -317,7 +347,7 @@ INSTALLED_APPS = [
 Then, navigate to your myproject's urls.py file, and do the basic settings for Swagger docs. First, you need to import all the necessary modules.
 
 
-```bash 
+```python
 from rest_framework_swagger.views import get_swagger_view
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -325,7 +355,7 @@ from rest_framework import permissions
 ```
 Then proceed to set up Swagger with the code below.
 
-```bash
+```python
 “schema_view = get_schema_view(
     openapi.Info(
         title="myproject",
@@ -336,7 +366,7 @@ Then proceed to set up Swagger with the code below.
 ```
 
 After which, include swagger docs in your urlspatterns with the line of code below.
-```bash
+```python
 urlpatterns = [
        path('products/', include('products.urls')),
        path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
@@ -364,7 +394,7 @@ pip install whitenoise
 ```
 ### Update MIDDLEWARE
 Update your Django settings to use WhiteNoise for serving static files by add whiteNoise to your middleware in __settings.py__
-```bash
+```python
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     ...
@@ -372,7 +402,7 @@ MIDDLEWARE = [
 ```
 ### Configure staticfiles
 Ensure that your staticfile is configured correctly in your __settings.py__ file. It should look like this code below
-```bash
+```python
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
