@@ -19,9 +19,7 @@ This article  will focus on swagger documenting UI and integrating swagger in yo
 - Python
 
 ## SET UP A VIRTUAL ENVIRONMENT
-To continue, you will need to install the necessary dependencies needed for the swagger implementation.
-
-Next, you need to create a virtual environment. It can be created with the code below. Depending on the version of Python you downloaded. For python 3.12. 1. Use this command below.
+Create a virtual environment. Depending on the version of Python you downloaded. For python 3.12. 1. Use this command.
 ```bash
 python -m venv {venv name}
 ```
